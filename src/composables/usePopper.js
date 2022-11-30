@@ -66,7 +66,7 @@ export default function usePopper({
     await nextTick();
     state.popperInstance = createPopper(triggerNode.value, popperNode.value, {
       placement: placement.value,
-      strategy: strategy,
+      strategy: strategy.value,
       modifiers: [
         preventOverflow,
         flip,
