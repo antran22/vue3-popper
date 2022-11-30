@@ -19,6 +19,7 @@ declare module "vue3-popper" {
       | "left-start"
       | "left-end";
     disableClickAway?: boolean;
+    strategy?: "fixed" | "absolute";
     offsetSkid?: string;
     offsetDistance?: string;
     hover?: boolean;
