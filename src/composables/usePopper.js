@@ -16,6 +16,7 @@ export default function usePopper({
   placement,
   popperNode,
   triggerNode,
+  strategy,
 }) {
   const state = reactive({
     isOpen: false,
@@ -65,6 +66,7 @@ export default function usePopper({
     await nextTick();
     state.popperInstance = createPopper(triggerNode.value, popperNode.value, {
       placement: placement.value,
+      strategy: strategy,
       modifiers: [
         preventOverflow,
         flip,

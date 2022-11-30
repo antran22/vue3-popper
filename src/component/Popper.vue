@@ -49,6 +49,13 @@
   const emit = defineEmits(["open:popper", "close:popper"]);
   const slots = useSlots();
   const props = defineProps({
+    strategy: {
+      type: String,
+      default: "fixed",
+      validator: function(value) {
+        return ["fixed", "absolute"].includes(value);
+      },
+    },
     /**
      * Preferred placement (the "auto" placements will choose the side with most space.)
      */
@@ -203,9 +210,11 @@
     openDelay,
     placement,
     show,
+    strategy,
   } = toRefs(props);
 
   const { isOpen, open, close } = usePopper({
+    strategy,
     arrowPadding,
     emit,
     locked,
